@@ -13,14 +13,17 @@
 
 <body onload="func()">
 
+<div id="ctn">
+</div>
+
 	<script>
 	var func = function() {
 		console.log("Getting remote list");
 		$.mobile.showPageLoadingMsg();
 		$.ajax({
-			url: "http://localhost:8080/v3/mapi-flights/airlines?description=tam-lineas-aereas",
+			url: "http://localhost:8080/v3/mapi-flights/",
 
-      success: function () { alert('it works') }
+      success: function (resp) { $("#ctn").html(resp); $.mobile.hidePageLoadingMsg();}
 		});
 	};
 	</script>
